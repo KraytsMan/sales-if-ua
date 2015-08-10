@@ -62,7 +62,7 @@ public class GoodsServiceImpl implements GoodsService {
 
     @Override
     public List<Good> getNewest(int size) {
-        PageRequest pageRequest = new PageRequest(0, 10,new Sort(Sort.Direction.DESC, "date"));
+        PageRequest pageRequest = new PageRequest(0, 10, new Sort(Sort.Direction.DESC, "date"));
         return Lists.newArrayList(repository.findAll(pageRequest).getContent());
     }
 }
