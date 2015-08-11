@@ -80,6 +80,7 @@
     <script type="text/javascript" src="app/modules/home/controllers/test.js"></script>
     <script type="text/javascript" src="app/modules/home/controllers/categoriesService.js"></script>
     <script type="text/javascript" src="app/modules/home/controllers/ProductsCtrl.js"></script>
+    <script type="text/javascript" src="app/modules/home/controllers/SearchCtrl.js"></script>
 
 </head>
 <body class="backgroundIMG">
@@ -303,7 +304,7 @@
 <!-- .navbar -->
 <nav class="navbar navbar-inverse navbar-fixed-top nav-back-img">
     <!-- .container -->
-    <div class="container">
+    <div class="container" ng-controller="RegistrateCtrl">
         <!-- .navbar-header -->
         <div class="navbar-header ">
             <button
@@ -322,7 +323,6 @@
             <ul class="nav navbar-nav adm-navStyle">
                 <li><a href="#/home/service">Services</a></li>
                 <li><a href="#/stuff">Products</a></li>
-                <li><a href="#/character">One Product</a></li>
                 <li><a href="#/admin/users">Admin</a></li>
             </ul>
 
@@ -330,24 +330,14 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="">
                     <!-- Form with search -->
-                    <form class="navbar-form">
+                    <form class="navbar-form" ng-controller="SearchCtrl">
                         <div class="input-group">
-                            <input
-                                    type="text"
-                                    class="form-control"
-                                    placeholder="Search product">
+                            <input type="text" class="form-control" placeholder="Search product" ng-model="searchData">
 
-                            <div class="input-group-btn">
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a href="#">through Shop</a></li>
-                                    <li><a href="#">through Site</a></li>
-                                </ul>
-                                <button type="button" class="btn btn-default" data-toggle="dropdown">
-                                    search
-                                    <span class="caret"></span>
-                                </button>
-                                <button type="button" class="btn btn-default">
+                            <div class="input-group-btn">   
+                                <button type="button" class="btn btn-default" ng-click="searchProduct()">
                                     <i class="fa fa-search"></i>
+                                    {{searchData}}
                                 </button>
                             </div>
                         </div>
@@ -366,13 +356,15 @@
                             data-toggle="dropdown"
                             role="button"
                             aria-expanded="false">
-                        <i class="fa fa-cog"> ${sessionScope.userEmail}</i>
+                            <!--NOTICE IMPORTANT THING ABOUT PASSING JSP VARIABLE TO JAVASCRIPT -->
+                        <i class="fa fa-cog" ng-init="grabSessionValue('${sessionScope.userEmail}')"> ${sessionScope.userEmail}</i>
                         <span class="caret"></span>
+                        {{sessionValue}}
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="#user/profile/edit"><i class="fa fa-user"></i> Profile</a></li>
                         <li><a href="#user/backet"><i class="fa fa-shopping-cart"></i> Bucket</a></li>
-                        <li><a href=""><i class="fa fa-user-times"></i> Log Out</a></li>
+                        <li><a ng-click="logOut()"><i class="fa fa-user-times"></i> Log Out</a></li>
                     </ul>
                 </li>
             </ul>
