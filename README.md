@@ -10,10 +10,6 @@
 3. MySql Server 5.5 (Linux command: sudo apt-get install mysql-server-5.5)
 
 4. Node.js 
-   You can download a Node.js installer for your operating system from http://nodejs.org/download/.
-   Check the version of Node.js that you have installed by running the following command in console:
-   
-   node --version
     
 5. Bower
     
@@ -31,19 +27,17 @@
    ubuntu command - create user "salesifua"@"localhost" identified by "salesifua";
    grant all on . to "salesifua"@"localhost";
    
-   mysql -u salesifua -p
+2. mysql -u salesifua -p salesifua
    
-   CREATE DATABASE salesifua character set utf8;
+3. CREATE DATABASE salesifua character set utf8;
 
 ### Run server 
 ***************************************************
 
-1. From console go to project directory
- 
-2. Enter command mvn jetty:run
+1. mvn jetty:run
 
 # Home page:
-1. http://localhost:8080/Practice/#/home  - Main Page
+1. http://localhost:8080/Practice/#/home
 
 
 # SWAGGER documentation:
