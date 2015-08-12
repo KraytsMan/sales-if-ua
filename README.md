@@ -1,6 +1,6 @@
 # Sales-if-ua
 
-### must to be installed next things:
+### Environment configuration:
 ***************************************************
 
 1. java SE 1.8.
@@ -8,6 +8,21 @@
 2. apache-maven-3.2.5.
 
 3. MySql Server 5.5 (Linux command: sudo apt-get install mysql-server-5.5)
+
+4. Node.js 
+   You can download a Node.js installer for your operating system from http://nodejs.org/download/.
+   Check the version of Node.js that you have installed by running the following command in console:
+   
+   node --version
+    
+5. Bower
+    
+   npm install -g bower
+   
+6. Browse required libraries
+   In your console go to the {system path}/sales-if-ua/src/main/webapp/app and type following comand:
+   
+   bower install
 
 ### Database steps:
 ***************************************************
@@ -20,21 +35,6 @@
    
    CREATE DATABASE salesifua character set utf8;
 
-#Install Node.js
-Node is a requirement for bower package manager.
-You can download a Node.js installer for your operating system from http://nodejs.org/download/.
-Check the version of Node.js that you have installed by running the following command in console:
-```sh
- node --version
-```
-
-#Install Bower
-Bower is used for bootstrapping application with needed libraries like Angular.js, jQuery etc.
-
-#Browse required libraries
-In your console go to the {system path}/sales-if-ua/src/main/webapp/app and type following comand:
-
-
 ### Run server 
 ***************************************************
 
@@ -42,9 +42,9 @@ In your console go to the {system path}/sales-if-ua/src/main/webapp/app and type
  
 2. Enter command mvn jetty:run
 
-#Start page link:
+# Home page:
 1. http://localhost:8080/Practice/#/home  - Main Page
 
 
-#Links for using SWAGGER documentation:
+# SWAGGER documentation:
 1. http://localhost:8080/Practice/api-docs
